@@ -1,0 +1,14 @@
+<div class="list" ng-controller='TasksController' id="tasks">     
+  <div class="row subtitle">
+    <div class="small-9 columns"><span>Tasks</span> really important stuff </div>
+    <div class="small-3 columns"><a class="button" href="#"> Add Task</a> </div>
+  </div>
+  <div class="row">
+    <ul class="small-11 small-centered columns">
+      <li class="row" ng-repeat="task in tasks">
+        <div class="small-4 columns">{{task.name}}</div>
+        <div class="small-4 columns">{{task.deadline}} {{task.assignedUserName}}</div>
+        <div class="small-2 columns"><a class="button" href="#"> Delete </a></div>
+    </ul>
+  </div>
+</div>

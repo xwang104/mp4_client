@@ -12,11 +12,28 @@ mp4Services.factory('CommonData', function(){
     }
 });
 
-mp4Services.factory('Llamas', function($http, $window) {
+mp4Services.factory('Users', function($http, $window) {
     return {
         get : function() {
             var baseUrl = $window.sessionStorage.baseurl;
-            return $http.get(baseUrl+'/api/llamas');
+            return $http.get(baseUrl + '/api/users');
+        },
+        post : function(user) {
+            var baseUrl = $window.sessionStorage.baseurl;
+            return $http.post(baseUrl + '/api/users', user);
+        },
+        delete : function(id) {
+            var baseUrl = $window.sessionStorage.baseurl;
+            return $http.delete(baseUrl + '/api/users/' + id);
+        }
+    }
+});
+
+mp4Services.factory('Tasks', function($http, $window) {
+    return {
+        get : function() {
+            var baseUrl = $window.sessionStorage.baseurl;
+            return $http.get(baseUrl+'/api/tasks');
         }
     }
 });

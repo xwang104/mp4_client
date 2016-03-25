@@ -1,0 +1,14 @@
+<div class="list" ng-controller='UsersController' id="users">     
+  <div class="row subtitle">
+    <div class="small-9 columns"><span>Users</span> a list of cool people </div>
+    <div class="small-3 columns"><a class="success button" href="#/adduser"> Add User</a> </div>
+  </div>
+  <div class="row">
+    <ul class="small-11 small-centered columns">
+      <li class="row" ng-repeat="user in users">
+        <div class="small-4 columns">{{user.name}}</div>
+        <div class="small-4 columns">{{user.email}}</div>
+        <div class="small-2 columns"><button class="alert button" ng-click="deleteUser(user._id)"> Delete </button></div>
+    </ul>
+  </div>
+</div>

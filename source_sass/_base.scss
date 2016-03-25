@@ -1,1 +1,36 @@
 // Add any custom Sass & CSS here
+#content {
+    padding-top: 3em;
+    #nav {
+        margin: 0 0 2em 0;
+        .button {
+            width: 100%;
+            padding: 1em;
+            margin: 0;
+            @include breakpoint(large) {
+                width: 90%;
+                margin: 0 0 2rem 0;
+            }
+        }
+    }
+}
+
+.subtitle {
+    padding-bottom: 2em;
+    span {
+        font-size: 2em;
+        padding: 0.5em;
+    }
+}
+
+.required {
+    color: red;
+}
+
+ul {
+    list-style-type: none;
+    li {
+        border-top: 1px solid grey;
+    }
+}
+

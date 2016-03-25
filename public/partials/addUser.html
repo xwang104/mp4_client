@@ -1,0 +1,23 @@
+<div class="list" ng-controller='AddUserController' id="addUser">     
+  <div class="row subtitle">
+    <div><span>Add User</span> our next task-slayer </div>
+  </div>
+  <form>
+    <div class="row">
+        <div class="small-8 columns">
+          <label> Name <span class="required">*</span>
+            <input ng-model="name" type="text">
+          </label>
+          <label> Email <span class="required">*</span>
+            <input ng-model="email" type="text">
+          </label>
+        </div>
+    </div>
+
+    <div class="row text-center">
+      <div class="small-8 columns">
+        <button ng-click="addUser()" class="button small">Submit</button>
+      </div>
+    </div>
+  </form>
+</div>
