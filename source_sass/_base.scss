@@ -27,10 +27,26 @@
     color: red;
 }
 
+.complete {
+    background-color: gray;
+}
+
 ul {
     list-style-type: none;
     li {
+        height: 4em;
+        padding-top: 1em;
         border-top: 1px solid grey;
+    }
+}
+
+#taskNav {
+    button {
+        background-color: lightBlue;
+        &:hover {
+            background-color: #2199e8;
+        }
+        width: 7em;
     }
 }
 

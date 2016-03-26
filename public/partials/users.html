@@ -6,9 +6,10 @@
   <div class="row">
     <ul class="small-11 small-centered columns">
       <li class="row" ng-repeat="user in users">
-        <div class="small-4 columns">{{user.name}}</div>
+        <div class="small-4 columns"><a href="#userProfile/{{user._id}}">{{user.name}}</a></div>
         <div class="small-4 columns">{{user.email}}</div>
         <div class="small-2 columns"><button class="alert button" ng-click="deleteUser(user._id)"> Delete </button></div>
+      </li>
     </ul>
   </div>
 </div>

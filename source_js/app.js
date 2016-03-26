@@ -10,9 +10,17 @@ app.config(['$routeProvider', function($routeProvider) {
     templateUrl: 'partials/addUser.html',
     controller: 'AddUserController'
   }).
+  when('/userProfile/:userid', {
+    templateUrl: 'partials/userProfile.html',
+    controller: 'UserProfileController'
+  }).
   when('/tasks', {
     templateUrl: 'partials/tasks.html',
     controller: 'TasksController'
+  }).
+  when('/addtask', {
+    templateUrl: 'partials/addTask.html',
+    controller: 'AddTaskController'
   }).
   when('/settings', {
     templateUrl: 'partials/settings.html',
@@ -22,3 +30,9 @@ app.config(['$routeProvider', function($routeProvider) {
     redirectTo: '/settings'
   });
 }]);
+
+app.run(function($rootScope) {
+    $rootScope.$on('$viewContentLoaded', function () {
+        $(document).foundation();
+    });
+});

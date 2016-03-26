@@ -1,9 +1,9 @@
-<div class="list" ng-controller='AddUserController' id="addUser">     
+<div class="list" ng-controller='AddTaskController' id="addTask">     
   <div class="row subtitle">
-    <div><span>Add User</span> our next task-slayer </div>
+    <div><span>Add Task</span> staying occupied </div>
   </div>
-  <form data-abide novalidate name="userFrom">
-    <div class="row" style="height: 12em;">
+  <form data-abide novalidate name="taskFrom">
+    <div class="row">
         <div class="small-8 columns">
           <label> Name <span class="required">*</span>
             <input ng-model="name" type="text" aria-describedby="exampleHelpText" required>
@@ -11,10 +11,13 @@
               Name is required!
             </span>
           </label>
-          <label> Email <span class="required">*</span>
-            <input ng-model="email" type="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" required placeholder="email@email.com">
+          <label> Description <span class="required">*</span>
+            <input ng-model="description" type="text" aria-describedby="exampleHelpText">
+          </label>
+          <label> Deadline <span class="required">*</span>
+            <input ng-model="deadline" type="date">
             <span class="form-error">
-              An email address is required!
+              Deadline is required!
             </span>
           </label>
         </div>

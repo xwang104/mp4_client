@@ -14,3 +14,9 @@ function highlightThis(event) {
     alert(this.className);
     this.style.backgroundColor=backgroundColor;
 }
+
+$(document)
+    .bind("submit", function(ev) {
+        ev.preventDefault();
+        console.log("Submit for form intercepted");
+    });

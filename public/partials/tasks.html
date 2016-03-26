@@ -1,14 +1,41 @@
 <div class="list" ng-controller='TasksController' id="tasks">     
   <div class="row subtitle">
     <div class="small-9 columns"><span>Tasks</span> really important stuff </div>
-    <div class="small-3 columns"><a class="button" href="#"> Add Task</a> </div>
+    <div class="small-3 columns"><a class="success button" href="#/addtask"> Add Task</a> </div>
+  </div>
+  <div class="row" style="padding: 1em 0 4em 4em;">
+    <div class="small-3 columns">
+      <input type="radio" ng-model="select.taskStatus" ng-click="loadfiltered()" value="pending" id="pending" ><label for="pending">Pending</label><br>
+      <input type="radio" ng-model="select.taskStatus" ng-click="loadfiltered()" value="completed" id="completed"><label for="completed">Completed</label><br>
+      <input type="radio" ng-model="select.taskStatus" ng-click="loadfiltered()" value="all" id="all"><label for="all">All</label>
+    </div>
+    <div class="small-4 columns">
+      <label for="sort">Sort By: </label>
+      <select name="sort" ng-model="select.sortBy" ng-change="loadfiltered()">
+        <option value="dateCreated">datedCreated</option>
+        <option value="deadline">deadline</option>
+        <option value="name">name</option>
+        <option value="assignedUserName">assignedUserName</option>
+      </select>
+    </div>
+    <div class="small-4 columns">
+      <input type="radio" ng-model="select.reverse" ng-click="loadfiltered()" value="false" id="ascending"><label for="ascending"> Ascending </label><br>
+      <input type="radio" ng-model="select.reverse" ng-click="loadfiltered()" value="true" id="descending"><label for="descending"> Descending </label>
+    </div>
+  </div>
+  <div class="row" id="taskNav">
+    <div class="small-11 small-centered columns">
+      <div class="small-2 columns"><button ng-click="loadPre()" ng-disabled="taskPage == 0" class="small button"> Previous </button></div>
+      <div class="small-2 columns"><button ng-click="loadNext()" ng-disabled="tasks.length < 10" class="small button"> Next </button></div>
+    </div>
   </div>
   <div class="row">
     <ul class="small-11 small-centered columns">
       <li class="row" ng-repeat="task in tasks">
-        <div class="small-4 columns">{{task.name}}</div>
-        <div class="small-4 columns">{{task.deadline}} {{task.assignedUserName}}</div>
-        <div class="small-2 columns"><a class="button" href="#"> Delete </a></div>
+        <div class="small-6 columns">{{task.name}}</div>
+        <div class="small-4 columns">{{task.assignedUserName}}</div>
+        <div class="small-2 columns"><button class="alert button" ng-click="deleteTask(task._id)"> Delete </button></div>
+      </li>
     </ul>
   </div>
 </div>

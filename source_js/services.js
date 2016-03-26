@@ -14,9 +14,17 @@ mp4Services.factory('CommonData', function(){
 
 mp4Services.factory('Users', function($http, $window) {
     return {
-        get : function() {
+        get : function(query) {
             var baseUrl = $window.sessionStorage.baseurl;
-            return $http.get(baseUrl + '/api/users');
+            if (query === undefined) {
+                return $http.get(baseUrl + '/api/users');
+            }
+            else if (typeof(query) === "string") {
+                return $http.get(baseUrl + '/api/users/' + query);
+            }
+            else {
+                return $http.get(baseUrl + '/api/users', {params: query});
+            }
         },
         post : function(user) {
             var baseUrl = $window.sessionStorage.baseurl;
@@ -31,9 +39,22 @@ mp4Services.factory('Users', function($http, $window) {
 
 mp4Services.factory('Tasks', function($http, $window) {
     return {
-        get : function() {
+        get : function(query) {
             var baseUrl = $window.sessionStorage.baseurl;
-            return $http.get(baseUrl+'/api/tasks');
+            if (query === undefined) {
+                return $http.get(baseUrl+'/api/tasks');
+            }
+            else {
+                return $http.get(baseUrl + '/api/tasks', {params: query});
+            }
+        },
+        put : function(task) {
+            var baseUrl = $window.sessionStorage.baseurl;
+            return $http.put(baseUrl + '/api/tasks/' + task._id, task);
+        },
+        delete : function(id) {
+            var baseUrl = $window.sessionStorage.baseurl;
+            return $http.delete(baseUrl + '/api/tasks/' + id);
         }
     }
 });

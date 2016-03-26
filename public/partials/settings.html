@@ -1,5 +1,5 @@
 <div class="list" ng-controller='SettingsController' id="settings">		
-  <div class="row">
+  <div class="row subtitle">
     <p><span>Settings</span> set your backend URL</p>
   </div>
 	<form>
@@ -7,10 +7,10 @@
           <div class="small-12 columns">
             <input ng-model="url" type="text" placeholder="URL">
           </div>
-      </div>
+    </div>
 
     <div class="text-center">
-      <button ng-click="setUrl()" class="button tiny info">Set URL</button>
+      <button ng-click="setUrl()" class="button small info">Set URL</button>
     </div>
 
     {{displayText}}

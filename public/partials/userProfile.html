@@ -1,0 +1,36 @@
+<div class="list" ng-controller='UserProfileController' id="users">     
+  <div class="row subtitle">
+    <div class="small-9 columns"><span>User Profile</span> just like on Facebook but better </div>
+  </div>
+  <div class="row">
+    <ul class="small-11 small-centered columns">
+      <li class="row"> 
+        <div class="small-6 columns">{{user.name}}</div>
+        <div class="small-6 columns">{{user.email}}</div>
+      </li>
+      <li class="row">
+        <div class="small-6 columns"> <h5>Pending Tasks</h5> </div>
+      </li>
+    </ul>
+  </div>
+  <div class="row">
+    <ul class="small-11 small-centered columns">
+      <li class="row" ng-repeat="task in pendingTasks">
+        <div class="small-5 columns"><a href="#">{{task.name}}</a></div>
+        <div class="small-5 columns">Deadline: {{task.deadline.substr(0, 10)}}</div>
+        <div class="small-2 columns"><button class="small button complete" ng-click="completeTask(task._id)"> Completed </button></div>
+      </li>
+    </ul>
+  </div>
+  <div class="row text-center">
+      <button class="button" type="button" ng-click="showCompTasks()">Show Completed Tasks</button>
+  </div>
+  <div class="row">
+    <ul class="small-11 small-centered columns">
+      <li class="row" ng-repeat="task in completedTasks">
+        <div class="small-5 columns"><a href="#">{{task.name}}</a></div>
+        <div class="small-5 columns">Deadline: {{task.deadline.substr(0, 10)}}</div>
+      </li>
+    </ul>
+  </div>
+</div>
