@@ -36,8 +36,12 @@ ul {
     li {
         height: 4em;
         padding-top: 1em;
-        border-top: 1px solid grey;
+        border-top: 1px dotted grey;
     }
+}
+
+.namefield {
+    font-size: 1.6em;
 }
 
 #taskNav {
@@ -48,5 +52,19 @@ ul {
         }
         width: 7em;
     }
+}
+
+#taskDetail {
+    li div div {
+        margin: 2em 0 0 2em;
+    }
+    li span {
+        font-weight: 600;
+        padding: 0 0.4em;
+    }
+}
+
+footer {
+    padding: 4em;
 }
 

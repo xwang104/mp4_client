@@ -1,0 +1,22 @@
+<div class="list" ng-controller='TaskDetailController' id="taskDetail">     
+  <div class="row subtitle">
+    <div class="small-9 columns"><span>Task</span> gotta get this done </div>
+    <div class="small-3 columns"><a class="success button" href="#/editTask/{{task._id}}"> Edit Task</a> </div>
+  </div>
+  <div class="row">
+    <ul class="small-11 small-centered columns">
+      <li class="row" style="height: 14em;"> 
+        <div class="small-6 columns">
+          <div style="font-size: 1.2em;">{{task.name}}</div>
+          <div><span>Assigned to: </span> {{task.assignedUserName}}</div>
+        </div>
+        <div class="small-6 columns">
+          <div style="font-size: 1.2em;">Deadline: {{task.deadline.substr(0, 10)}}</div>
+          <div><span>Completed: </span>{{task.completed}}</div>
+        </div>
+      </li>
+      <li class="row"/>
+    </ul>
+  </div>
+
+</div>

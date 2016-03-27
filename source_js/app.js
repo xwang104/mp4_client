@@ -1,4 +1,4 @@
-var app = angular.module('mp4', ['ngRoute', 'mp4Controllers', 'mp4Services']);
+var app = angular.module('mp4', ['ngRoute', 'mp4Controllers', 'mp4Services', '720kb.datepicker']);
 
 app.config(['$routeProvider', function($routeProvider) {
   $routeProvider.
@@ -21,6 +21,14 @@ app.config(['$routeProvider', function($routeProvider) {
   when('/addtask', {
     templateUrl: 'partials/addTask.html',
     controller: 'AddTaskController'
+  }).
+  when('/taskDetail/:taskid', {
+    templateUrl: 'partials/taskDetail.html',
+    controller: 'TaskDetailController'
+  }).
+  when('/editTask/:taskid', {
+    templateUrl: 'partials/editTask.html',
+    controller: 'EditTaskController'
   }).
   when('/settings', {
     templateUrl: 'partials/settings.html',

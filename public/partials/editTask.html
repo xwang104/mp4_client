@@ -1,22 +1,22 @@
-<div class="list" ng-controller='AddTaskController' id="addTask">     
+<div class="list" ng-controller='EditTaskController' id="editask">     
   <div class="row subtitle">
-    <div><span>Add Task</span> staying occupied </div>
+    <div><span>Edit Task</span> staying occupied </div>
   </div>
   <form data-abide novalidate name="taskFrom">
     <div class="row" style="height: 25em;">
         <div class="small-8 columns">
           <label> Name <span class="required">*</span>
-            <input ng-model="name" type="text" aria-describedby="exampleHelpText" required>
+            <input ng-model="task.name" type="text" aria-describedby="exampleHelpText" required>
             <span class="form-error">
               Name is required!
             </span>
           </label>
           <label> Description
-            <input ng-model="description" type="text" aria-describedby="exampleHelpText">
+            <input ng-model="task.description" type="text" aria-describedby="exampleHelpText">
           </label>
           <label> Deadline <span class="required">*</span>
             <datepicker>
-              <input ng-model="deadline" type="text" required>
+              <input ng-model="task.deadline" type="text" required>
               <span class="form-error">
                 Deadline is required!
               </span>
@@ -28,26 +28,30 @@
               ng-model="data.selectedOption">
             </select>
           </label>
+          <label> Completed
+            <input type="radio" ng-model="task.completed" ng-value="true" id="yes"><label for="yes"> Yes </label>
+            <input type="radio" ng-model="task.completed" ng-value="false" id="no"><label for="no"> No </label>
+          </label>
         </div>
     </div>
 
     <div class="row text-center">
       <div class="small-8 columns">
-        <button type="submit" value="submit" ng-click="addTask(taskFrom.$valid)" class="button small">Submit</button>
+        <button type="submit" value="submit" ng-click="editTask(taskFrom.$valid)" class="button small">Submit</button>
       </div>
     </div>
   </form>
 
   <div class="row">
-    <div class="small-8 columns success callout" style="display:none;" id="addTaskSuccess" data-closable>
+    <div class="small-8 columns success callout" style="display:none;" id="editTaskSuccess" data-closable>
       <button class="close-button" aria-label="Dismiss alert" type="button" data-close>
         <span aria-hidden="true">&times;</span>
       </button>
-      <p>Task {{addedTaskName}} has been added!</p>
+      <p>Task {{editTaskName}} has been updated!</p>
     </div>
   </div>
   <div class="row">
-    <div class="small-8 columns alert callout" style="display:none;" id="addTaskFailed" data-closable>
+    <div class="small-8 columns alert callout" style="display:none;" id="editTaskFailed" data-closable>
       <button class="close-button" aria-label="Dismiss alert" type="button" data-close>
         <span aria-hidden="true">&times;</span>
       </button>

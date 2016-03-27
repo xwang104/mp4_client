@@ -4,7 +4,7 @@
   </div>
   <div class="row">
     <ul class="small-11 small-centered columns">
-      <li class="row"> 
+      <li class="row namefield"> 
         <div class="small-6 columns">{{user.name}}</div>
         <div class="small-6 columns">{{user.email}}</div>
       </li>
@@ -16,7 +16,7 @@
   <div class="row">
     <ul class="small-11 small-centered columns">
       <li class="row" ng-repeat="task in pendingTasks">
-        <div class="small-5 columns"><a href="#">{{task.name}}</a></div>
+        <div class="small-5 columns"><a href="#taskDetail/{{task._id}}">{{task.name}}</a></div>
         <div class="small-5 columns">Deadline: {{task.deadline.substr(0, 10)}}</div>
         <div class="small-2 columns"><button class="small button complete" ng-click="completeTask(task._id)"> Completed </button></div>
       </li>
@@ -28,7 +28,7 @@
   <div class="row">
     <ul class="small-11 small-centered columns">
       <li class="row" ng-repeat="task in completedTasks">
-        <div class="small-5 columns"><a href="#">{{task.name}}</a></div>
+        <div class="small-5 columns"><a href="#taskDetail/{{task._id}}">{{task.name}}</a></div>
         <div class="small-5 columns">Deadline: {{task.deadline.substr(0, 10)}}</div>
       </li>
     </ul>

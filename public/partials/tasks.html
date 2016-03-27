@@ -32,7 +32,7 @@
   <div class="row">
     <ul class="small-11 small-centered columns">
       <li class="row" ng-repeat="task in tasks">
-        <div class="small-6 columns">{{task.name}}</div>
+        <div class="small-6 columns"><a href="#taskDetail/{{task._id}}">{{task.name}}</a></div>
         <div class="small-4 columns">{{task.assignedUserName}}</div>
         <div class="small-2 columns"><button class="alert button" ng-click="deleteTask(task._id)"> Delete </button></div>
       </li>
