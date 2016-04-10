@@ -433,7 +433,8 @@ mp4Controllers.controller('EditTaskController', ['$scope', '$http', 'Tasks', "Us
 
 
 mp4Controllers.controller('SettingsController', ['$scope' , '$window' , function($scope, $window) {
-  $scope.url = $window.sessionStorage.baseurl;
+  //$scope.url = $window.sessionStorage.baseurl;
+  $scope.url = 'http://www.uiucwp.com:4000';
 
   $scope.setUrl = function(){
     $window.sessionStorage.baseurl = $scope.url;
