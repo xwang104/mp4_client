@@ -15,8 +15,9 @@ mp4Controllers.controller('UsersController', ['$scope', '$http', 'Users', 'Tasks
 
   //delete a user
   $scope.deleteUser = function(id) {
-    Users.delete(id).success(function(jsondata, statusCode) {
+    Users.delete(id).success(function(jsonData, statusCode) {
       console.log('The request for deleting user was successful', statusCode);
+      console.log(jsonData.data);
       //delete that user from front end
       for(var i = 0; i < $scope.users.length; i++) {
         if ($scope.users[i]._id == id) {
@@ -27,7 +28,7 @@ mp4Controllers.controller('UsersController', ['$scope', '$http', 'Users', 'Tasks
       }
 
       //change the user's assigned task to unassigned; should change the implementation when I have my own backend
-      Tasks.get({where: {"assignedUserName": tmpUser.name,"completed": false}}).success(function(jsonData, statusCode) {
+      Tasks.get({where: {"assignedUser": tmpUser._id,"completed": false}}).success(function(jsonData, statusCode) {
         console.log('The request for tasks that should be updated to unassigned was successful', statusCode);
         $scope.message = jsonData.message;
         $scope.updateTasks = jsonData.data;

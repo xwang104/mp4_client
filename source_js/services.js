@@ -29,6 +29,7 @@ mp4Services.factory('Users', function($http, $window) {
         post : function(user) {
             var baseUrl = $window.sessionStorage.baseurl;
             return $http.post(baseUrl + '/api/users', user);
+            //return $http.post(baseUrl + '/api/users', user, {headers: {'Content-Type': 'application/x-www-form-urlencoded'}});
         },
         put : function(user) {
             var baseUrl = $window.sessionStorage.baseurl;
