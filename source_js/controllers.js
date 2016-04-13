@@ -123,12 +123,7 @@ mp4Controllers.controller('UserProfileController', ['$scope', '$http', 'Users', 
     for(var i = 0; i < $scope.pendingTasks.length; i++) {
       if ($scope.pendingTasks[i]._id == id) {
         var taskDone = $scope.pendingTasks[i];
-        $scope.pendingTasks.splice(i, 1);
         taskDone.completed = true;
-        //add it to completed tasks list if it was retrieved
-        if ($scope.completedTasks !== undefined) {
-          $scope.completedTasks.push(taskDone);
-        }
         //update the pendingTasks of the user
         var index = $scope.user.pendingTasks.indexOf(id);
         if (index > -1) {
@@ -145,6 +140,12 @@ mp4Controllers.controller('UserProfileController', ['$scope', '$http', 'Users', 
         //update the task in backend
         Tasks.put(taskDone).success(function(jsonData, statusCode) {
           console.log('The task was marked as completed', statusCode);
+          //remove from pending tasks
+          $scope.pendingTasks.splice(i, 1);
+          //add it to completed tasks list if it was retrieved
+          if ($scope.completedTasks !== undefined) {
+            $scope.completedTasks.push(taskDone);
+          }
         })
         .error(function(jsonData, statusCode) {
           console.log('mark task completed failed', statusCode);
@@ -413,12 +414,16 @@ mp4Controllers.controller('EditTaskController', ['$scope', '$http', 'Tasks', "Us
         $('#editTaskSuccess').show();
         //update user's pendingTask list
         if (newStatus === false) {
-          $scope.rmFromPendingTasks(oldUser, $scope.task._id);
-          $scope.addToPendingTasks(newUser, $scope.task._id);
+          if (oldUser.match(/^[0-9a-fA-F]{24}$/))
+            $scope.rmFromPendingTasks(oldUser, $scope.task._id);
+          if (newUser.match(/^[0-9a-fA-F]{24}$/))
+            $scope.addToPendingTasks(newUser, $scope.task._id);
         }
         else if (newStatus === true) {
-          $scope.rmFromPendingTasks(newUser, $scope.task._id);
-          $scope.rmFromPendingTasks(oldUser, $scope.task._id);          
+          if (oldUser.match(/^[0-9a-fA-F]{24}$/))
+            $scope.rmFromPendingTasks(newUser, $scope.task._id);
+          if (newUser.match(/^[0-9a-fA-F]{24}$/))
+            $scope.rmFromPendingTasks(oldUser, $scope.task._id);          
         }        
       })
       .error(function(jsonData, statusCode) {
